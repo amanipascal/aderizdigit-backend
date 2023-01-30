@@ -43,7 +43,9 @@ app.service('profil').find({query: {name: 'superadmin'}}).then(resp => {
 
 //-----------------------------------------Traitement jotform--------------------------------
 //const apiKeys = ["b4dc272b9d5bd43a6b846042139aa0e9"];
-const apiKeys = ["a4b1b43ee1ceab33c40d956d1a1fd2d1"];
+//const apiKeys = ["a4b1b43ee1ceab33c40d956d1a1fd2d1"];
+const apiKeys = ["b4dc272b9d5bd43a6b846042139aa0e9"];
+
 
 var process_encours = false;
 
@@ -103,8 +105,7 @@ setInterval(() => {
                     //==================================================================
                     app.service(form.crud_service).find({query:{submit_id: Row.submit_infos.id}}).then(result => {
                       if (!!result.data.length) {
-                        //console.log('Data  already exit: ', Row)
-                           // Repercution des suppressions ------------------------
+                        // Repercution des suppressions ------------------------
                         if (Row.submit_infos.status == 'DELETED') {
                           app.service(form.crud_service).remove(result.data[0]._id)
                         } else {
